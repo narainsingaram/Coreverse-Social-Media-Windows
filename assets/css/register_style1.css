@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Flow+Rounded&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@100&family=Rubik+Mono+One&family=Space+Mono&display=swap");
+
+:root {
+  --color-button-backg-primary: linear-gradient(
+    135deg,
+    #3f37c9 10%,
+    #4361ee 100%
+  );
+}
+
+html {
+  font-family: Poppins !important;
+}
+
+::placeholder {
+  font-family: Poppins !important;
+}
+
+body {
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.logo-image {
+  width: 150px;
+  height: 150px;
+}
+
+.login_box {
+  background: rgba(255, 255, 255);
+  border-radius: 10px;
+  width: 450px;
+  border-radius: 15px;
+  text-align: center;
+  padding: 15px 5px 15px 5px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+.login_header {
+  width: 100%;
+  height: 3.5em;
+  color: black;
+  border-radius: 7px;
+  padding-bottom: 65px;
+}
+
+.login_header h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  height: 40px;
+  width: 90%;
+  font-size: 15px;
+  padding: 0 12px;
+  outline: none;
+  background-color: rgba(160, 160, 160, 0.3);
+  border: 1px solid #c4c6c7;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: Poppins;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  height: 40px;
+  width: 90%;
+  font-size: 15px;
+  padding: 0 12px;
+  outline: none;
+  background-color: rgba(160, 160, 160, 0.3);
+  border: 1px solid #c4c6c7;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: Poppins;
+  outline: 1px solid #3f37c9;
+}
+
+input[type="submit"] {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 0.2rem;
+  background-image: var(--color-button-backg-primary);
+  transition: 0.25s;
+  font-family: Poppins;
+  font-size: 1em;
+  font-weight: 600;
+  color: white;
+  display: block;
+  margin-top: 20px !important;
+  margin: auto;
+  width: 50%;
+}
+
+input[type="submit"]:hover {
+  transform: translateY(-2px);
+  cursor: pointer;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+#second {
+  display: none;
+}
