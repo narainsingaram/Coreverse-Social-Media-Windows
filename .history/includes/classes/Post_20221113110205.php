@@ -2,13 +2,13 @@
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp">
-<script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdn.jsdelivr.net/npm/daisyui@2.38.1/dist/full.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
 
 
 
-<script src="https://kit.fontawesome.com/e1623e6969.js" crossorigin="anonymous"> </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/e1623e6969.js" crossorigin="anonymous"> </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <?php
 class Post {
@@ -442,19 +442,14 @@ class Post {
 	
                 </div>
 
-				<div class='card bg-white px-4 py-6 shadow-lg'>
+				<div class='card bg-red-200 px-4 py-6 shadow-lg'>
 					$imageDiv
 				<div class='card-body'>
 				  <p>$body</p>
 				  <div class='card-actions justify-end'>
-					<iframe src='like.php?post_id=$id' class='h-20 w-16' scrolling='no'></iframe>
-					<button class='btn bg-blue-500 btn-circle mt-3.5' name='comment-toggle-button' onClick='javascript:toggle$id()'> 
-					<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none'>
-						<path opacity='.4' d='M7 18.43h4l4.45 2.96a.997.997 0 0 0 1.55-.83v-2.13c3 0 5-2 5-5v-6c0-3-2-5-5-5H7c-3 0-5 2-5 5v6c0 3 2 5 5 5Z' fill='#3b82f6'></path>
-						<path d='M15.5 11.25h-7c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h7c.41 0 .75.34.75.75s-.34.75-.75.75Z' fill='#3b82f6'></path>
-					</svg>
-					</button>
-					<button class='btn bg-blue-500 btn-circle mx-1 mt-3.5' name='comment-toggle-button' onClick='javascript:toggle$id()'> 
+					<button class='btn btn-primary'>Learn now!</button>
+					<iframe src='like.php?post_id=$id' class='btn btn-ghost h-30 w-20' scrolling='no'></iframe>
+					<button class='btn btn-circle' name='comment-toggle-button' onClick='javascript:toggle$id()'> 
 					<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none'>
 						<path opacity='.4' d='M7 18.43h4l4.45 2.96a.997.997 0 0 0 1.55-.83v-2.13c3 0 5-2 5-5v-6c0-3-2-5-5-5H7c-3 0-5 2-5 5v6c0 3 2 5 5 5Z' fill='#3b82f6'></path>
 						<path d='M15.5 11.25h-7c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h7c.41 0 .75.34.75.75s-.34.75-.75.75Z' fill='#3b82f6'></path>

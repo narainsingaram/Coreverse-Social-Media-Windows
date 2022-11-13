@@ -76,7 +76,7 @@
         echo '<form action="like.php?post_id=' . $post_id . '" method="POST" class="like_post_form">
 
         <button class="comment_like" name="unlike_button">
-        <span class="round btn btn-circle"> <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M22 8.692c0 1.19-.19 2.29-.52 3.31H2.52c-.33-1.02-.52-2.12-.52-3.31 0-3.09 2.49-5.59 5.56-5.59 1.81 0 3.43.88 4.44 2.23a5.549 5.549 0 0 1 4.44-2.23c3.07 0 5.56 2.5 5.56 5.59Z" fill="#FF8A65"></path><path opacity=".4" d="M21.48 12c-1.58 5-6.45 7.99-8.86 8.81-.34.12-.9.12-1.24 0C8.97 19.99 4.1 17 2.52 12h18.96Z" fill="#FF8A65"></path></svg></span>
+        <span class="round btn btn-circle" style="color: red; font-size: 30px;"> favorite</span>
     </button>
     </form>
 ';

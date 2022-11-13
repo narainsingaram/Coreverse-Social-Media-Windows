@@ -2,13 +2,13 @@
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp">
-<script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdn.jsdelivr.net/npm/daisyui@2.38.1/dist/full.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
 
 
 
-<script src="https://kit.fontawesome.com/e1623e6969.js" crossorigin="anonymous"> </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/e1623e6969.js" crossorigin="anonymous"> </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <?php
 class Post {
@@ -446,7 +446,7 @@ class Post {
 					$imageDiv
 				<div class='card-body'>
 				  <p>$body</p>
-				  <div class='card-actions justify-end'>
+				  <div class='justify-end'>
 					<iframe src='like.php?post_id=$id' class='h-20 w-16' scrolling='no'></iframe>
 					<button class='btn bg-blue-500 btn-circle mt-3.5' name='comment-toggle-button' onClick='javascript:toggle$id()'> 
 					<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none'>

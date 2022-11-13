@@ -76,7 +76,7 @@
         echo '<form action="like.php?post_id=' . $post_id . '" method="POST" class="like_post_form">
 
         <button class="comment_like" name="unlike_button">
-        <span class="round btn btn-circle"> <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M22 8.692c0 1.19-.19 2.29-.52 3.31H2.52c-.33-1.02-.52-2.12-.52-3.31 0-3.09 2.49-5.59 5.56-5.59 1.81 0 3.43.88 4.44 2.23a5.549 5.549 0 0 1 4.44-2.23c3.07 0 5.56 2.5 5.56 5.59Z" fill="#FF8A65"></path><path opacity=".4" d="M21.48 12c-1.58 5-6.45 7.99-8.86 8.81-.34.12-.9.12-1.24 0C8.97 19.99 4.1 17 2.52 12h18.96Z" fill="#FF8A65"></path></svg></span>
+        <span id="liked_animation" class="material-icons-round btn btn-circle" style="color: red; font-size: 30px;"> favorite</span>
     </button>
     </form>
 ';
@@ -87,7 +87,7 @@
         echo '<form action="like.php?post_id=' . $post_id . '" method="POST" class="like_post_form">
             
         <button  class="comment_like" name="like_button">
-        <span class="btn bg-red-200 btn-circle">
+        <span id="about_to_like" class="btn bg-red-200 btn-circle">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M12 21.652c-.31 0-.61-.04-.86-.13-3.82-1.31-9.89-5.96-9.89-12.83 0-3.5 2.83-6.34 6.31-6.34 1.69 0 3.27.66 4.44 1.84a6.214 6.214 0 0 1 4.44-1.84c3.48 0 6.31 2.85 6.31 6.34 0 6.88-6.07 11.52-9.89 12.83-.25.09-.55.13-.86.13Zm-4.44-17.8c-2.65 0-4.81 2.17-4.81 4.84 0 6.83 6.57 10.63 8.88 11.42.18.06.57.06.75 0 2.3-.79 8.88-4.58 8.88-11.42 0-2.67-2.16-4.84-4.81-4.84-1.52 0-2.93.71-3.84 1.94-.28.38-.92.38-1.2 0a4.77 4.77 0 0 0-3.85-1.94Z" fill="#FF8A65"></path></svg>
         </span>
     </button>
