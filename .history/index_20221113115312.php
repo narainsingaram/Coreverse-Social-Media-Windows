@@ -262,29 +262,25 @@ if(isset($_POST['post_message'])) {
     
 <div class="column" id="conversations"> 
 
-  <div class="friend_search_index">
-        </div>
-    </div>
+<div class="friend_search_index">
+        <form action="" method="POST">
+            <?php
+                if("water" == "water") {
+                    ?>
+                     <input type='text' onkeyup='getUsers(this.value, "<?php echo $userLoggedIn; ?>")' name='q' placeholder='Search friends to message' autocomplete='off' autofocus="autofocus" id='search_text_input'>
+                    <?php
+                    echo "<div class='results'></div>";
+                    
+                }
+            ?>
+        </form>
+              </div>
+
+
+
+</div>
 </div>
 </main>
-
-<input type="checkbox" id="search_modal" class="modal-toggle" />
-<label for="my-modal-4" class="modal cursor-pointer">
-  <label class="modal-box relative" for="">
-  <form action="" method="POST">
-              <?php
-                  if(true) {
-                      ?>
-                      <input class='w-full bg-slate-200 border-none outline-none rounded-xl px-4 py-3 my-2' type='text' onkeyup='getUsers(this.value, "<?php echo $userLoggedIn; ?>")' name='q' placeholder='Search friends to message' autocomplete='off' autofocus="autofocus" id='search_text_input'>
-                      <hr class='my-2'>
-                      <?php
-                      echo "<div class='results'></div>";
-                      
-                  }
-              ?>
-      </form>
-  </label>
-</label>
 
 </div>
 

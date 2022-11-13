@@ -275,8 +275,7 @@ if(isset($_POST['post_message'])) {
               <?php
                   if(true) {
                       ?>
-                      <input class='w-full bg-slate-200 border-none outline-none rounded-xl px-4 py-3 my-2' type='text' onkeyup='getUsers(this.value, "<?php echo $userLoggedIn; ?>")' name='q' placeholder='Search friends to message' autocomplete='off' autofocus="autofocus" id='search_text_input'>
-                      <hr class='my-2'>
+                      <input class='w-full bg-slate-200 border-none outline-none rounded-2xl px-4 py-2' type='text' onkeyup='getUsers(this.value, "<?php echo $userLoggedIn; ?>")' name='q' placeholder='Search friends to message' autocomplete='off' autofocus="autofocus" id='search_text_input'>
                       <?php
                       echo "<div class='results'></div>";
                       

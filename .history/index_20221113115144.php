@@ -161,10 +161,6 @@ if(isset($_POST['post'])) {
 
 </div>
 
-
-<div>
-
-
   <form action="index.php" method="POST" enctype="multipart/form-data">
     <div class="mb-2 w-full bg-gray-50 rounded-2xl shadow-[rgba(7,_65,70,_0.1)_0px_9px_30px]">
         <div class="py-2 px-4 bg-white rounded-t-xl">
@@ -262,29 +258,31 @@ if(isset($_POST['post_message'])) {
     
 <div class="column" id="conversations"> 
 
-  <div class="friend_search_index">
-        </div>
+<div class="friend_search_index">
+        <form action="" method="POST">
+            <?php
+                if("water" == "water") {
+                    ?>
+                     <input type='text' onkeyup='getUsers(this.value, "<?php echo $userLoggedIn; ?>")' name='q' placeholder='Search friends to message' autocomplete='off' autofocus="autofocus" id='search_text_input'>
+                    <?php
+                    echo "<div class='results'></div>";
+                    
+                }
+            ?>
+        </form>
     </div>
+
+        <div class="loaded_conversations">
+        <a class='add_a_message' href="messages.php?u=new"><i class="uil uil-plus"></i></a>
+                <?php echo $message_obj->getConvos(); ?>
+        </div>
+</div>
+
+
+
+</div>
 </div>
 </main>
-
-<input type="checkbox" id="search_modal" class="modal-toggle" />
-<label for="my-modal-4" class="modal cursor-pointer">
-  <label class="modal-box relative" for="">
-  <form action="" method="POST">
-              <?php
-                  if(true) {
-                      ?>
-                      <input class='w-full bg-slate-200 border-none outline-none rounded-xl px-4 py-3 my-2' type='text' onkeyup='getUsers(this.value, "<?php echo $userLoggedIn; ?>")' name='q' placeholder='Search friends to message' autocomplete='off' autofocus="autofocus" id='search_text_input'>
-                      <hr class='my-2'>
-                      <?php
-                      echo "<div class='results'></div>";
-                      
-                  }
-              ?>
-      </form>
-  </label>
-</label>
 
 </div>
 

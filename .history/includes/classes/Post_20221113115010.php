@@ -353,7 +353,7 @@ class Post {
                 $str .= "
 		<div class='card bg-white p-4 my-12 shadow-[rgba(7,_65,70,_0.1)_0px_9px_30px]'>
 			<div class='dropdown'>
-				<label tabindex='0' class='btn btn-ghost btn-circle absolute right-2 top-2'>More</label>
+				<label tabindex='0' class='btn absolute right-2 top-2'>...</label>
 				<ul tabindex='0' class='dropdown-content absolute right-2 top-14 menu p-2 shadow bg-base-100 rounded-box w-52'>
 				<li><a> <i class='uil uil-sync'></i> Remove Post </a></li>
 				<li><a> <i class='uil uil-sync'></i> Report </a></li>

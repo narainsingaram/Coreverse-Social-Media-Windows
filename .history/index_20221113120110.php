@@ -268,21 +268,11 @@ if(isset($_POST['post_message'])) {
 </div>
 </main>
 
-<input type="checkbox" id="search_modal" class="modal-toggle" />
+<input type="search_modal" id="search_modal" class="modal-toggle" />
 <label for="my-modal-4" class="modal cursor-pointer">
   <label class="modal-box relative" for="">
-  <form action="" method="POST">
-              <?php
-                  if(true) {
-                      ?>
-                      <input class='w-full bg-slate-200 border-none outline-none rounded-xl px-4 py-3 my-2' type='text' onkeyup='getUsers(this.value, "<?php echo $userLoggedIn; ?>")' name='q' placeholder='Search friends to message' autocomplete='off' autofocus="autofocus" id='search_text_input'>
-                      <hr class='my-2'>
-                      <?php
-                      echo "<div class='results'></div>";
-                      
-                  }
-              ?>
-      </form>
+    <h3 class="text-lg font-bold">Congratulations random Internet user!</h3>
+    <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
   </label>
 </label>
 

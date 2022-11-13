@@ -269,22 +269,31 @@ if(isset($_POST['post_message'])) {
 </main>
 
 <input type="checkbox" id="search_modal" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box relative">
+    <label class="modal-box relative" for="">
+  </div>
+</div>
+
+<input type="checkbox" id="my-modal-4" class="modal-toggle" />
 <label for="my-modal-4" class="modal cursor-pointer">
   <label class="modal-box relative" for="">
-  <form action="" method="POST">
+    <h3 class="text-lg font-bold">Congratulations random Internet user!</h3>
+    <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+  </label>
+</label>
+
+<form class='bg-red-200' action="" method="POST">
               <?php
                   if(true) {
                       ?>
-                      <input class='w-full bg-slate-200 border-none outline-none rounded-xl px-4 py-3 my-2' type='text' onkeyup='getUsers(this.value, "<?php echo $userLoggedIn; ?>")' name='q' placeholder='Search friends to message' autocomplete='off' autofocus="autofocus" id='search_text_input'>
-                      <hr class='my-2'>
+                      <input class='w-full' type='text' onkeyup='getUsers(this.value, "<?php echo $userLoggedIn; ?>")' name='q' placeholder='Search friends to message' autocomplete='off' autofocus="autofocus" id='search_text_input'>
                       <?php
                       echo "<div class='results'></div>";
                       
                   }
               ?>
       </form>
-  </label>
-</label>
 
 </div>
 

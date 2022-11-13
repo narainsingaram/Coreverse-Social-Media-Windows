@@ -276,7 +276,7 @@ if(isset($_POST['post_message'])) {
                   if(true) {
                       ?>
                       <input class='w-full bg-slate-200 border-none outline-none rounded-xl px-4 py-3 my-2' type='text' onkeyup='getUsers(this.value, "<?php echo $userLoggedIn; ?>")' name='q' placeholder='Search friends to message' autocomplete='off' autofocus="autofocus" id='search_text_input'>
-                      <hr class='my-2'>
+                      <hr>
                       <?php
                       echo "<div class='results'></div>";
                       

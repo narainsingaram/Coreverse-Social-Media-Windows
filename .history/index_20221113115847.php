@@ -269,22 +269,23 @@ if(isset($_POST['post_message'])) {
 </main>
 
 <input type="checkbox" id="search_modal" class="modal-toggle" />
-<label for="my-modal-4" class="modal cursor-pointer">
-  <label class="modal-box relative" for="">
-  <form action="" method="POST">
+<div class="modal">
+  <div class="modal-box relative">
+    <label for="search_modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+    <h3 class="text-lg font-bold">Search For Users</h3>
+    <form class='bg-red-200' action="" method="POST">
               <?php
                   if(true) {
                       ?>
-                      <input class='w-full bg-slate-200 border-none outline-none rounded-xl px-4 py-3 my-2' type='text' onkeyup='getUsers(this.value, "<?php echo $userLoggedIn; ?>")' name='q' placeholder='Search friends to message' autocomplete='off' autofocus="autofocus" id='search_text_input'>
-                      <hr class='my-2'>
+                      <input class='w-full' type='text' onkeyup='getUsers(this.value, "<?php echo $userLoggedIn; ?>")' name='q' placeholder='Search friends to message' autocomplete='off' autofocus="autofocus" id='search_text_input'>
                       <?php
                       echo "<div class='results'></div>";
                       
                   }
               ?>
-      </form>
-  </label>
-</label>
+          </form>
+  </div>
+</div>
 
 </div>
 
