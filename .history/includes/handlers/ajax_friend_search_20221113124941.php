@@ -6,13 +6,11 @@ $query = $_POST['query'];
 $userLoggedIn = $_POST['userLoggedIn'];
  
 $names = explode(" ", $query);
-
-$postReturnedQuery = '';
-
+ 
 //If query contains an underscore, assume user is searching for usernames
 if(strpos($query, '_') !== false) {
 	$usersReturnedQuery = mysqli_query($con, "SELECT * FROM user WHERE username LIKE '$query%' AND user_closed='no' LIMIT 8");
-	$postReturnedQuery = mysqli_query($con, "SELECT * FROM user_posts");
+	$postsReturnedQuery = mysqli_query($con, "SELECT * FROM user_posts WHERE body LIKE '$query%' AND user_closed='no' LIMIT 8");
 }
 //If there are two words, assume they are first and last names respectively
 else if(count($names) == 2) {
@@ -27,6 +25,7 @@ else  {
 if($query != ""){
  
 	while($row = mysqli_fetch_array($usersReturnedQuery)) {
+		while($prow = mysqli_fetch_array($postsReturnedQuery)) {
 		$user = new User($con, $userLoggedIn);
  
 		if($row['username'] != $userLoggedIn)
@@ -51,4 +50,5 @@ if($query != ""){
 	}
 }
  
+}
 ?>

@@ -36,17 +36,15 @@ else {
                 
             $search_input = explode(" ", $query);
 
-			echo $search_input;
-
             //If there are two words, assume they are first and last names respectively
-                if(count($search_input) == 3)
-            $usersReturnedQuery = mysqli_query($con, "SELECT * FROM user WHERE (first_name LIKE '$search_input[0]%' AND last_name LIKE '$search_input[2]%') AND user_closed='no'");
+                if(count($names) == 3)
+            $usersReturnedQuery = mysqli_query($con, "SELECT * FROM user WHERE (first_name LIKE '$names[0]%' AND last_name LIKE '$names[2]%') AND user_closed='no'");
         //If query has one word only, search first names or last names 
-                else if(count($search_input) == 2)
-            $usersReturnedQuery = mysqli_query($con, "SELECT * FROM user WHERE (first_name LIKE '$search_input[0]%' AND last_name LIKE '$search_input[1]%') AND user_closed='no'");
+                else if(count($names) == 2)
+            $usersReturnedQuery = mysqli_query($con, "SELECT * FROM user WHERE (first_name LIKE '$names[0]%' AND last_name LIKE '$names[1]%') AND user_closed='no'");
         
                 else 
-            $usersReturnedQuery = mysqli_query($con, "SELECT * FROM user WHERE (first_name LIKE '$names[0]%' OR last_name LIKE '$search_input[0]%') AND user_closed='no' LIMIT 8");
+            $usersReturnedQuery = mysqli_query($con, "SELECT * FROM user WHERE (first_name LIKE '$names[0]%' OR last_name LIKE '$names[0]%') AND user_closed='no' LIMIT 8");
             }
 
             		//Check if results were found 
@@ -75,6 +73,7 @@ else {
 				else if($user_obj->didSendRequest($row['username']))
 					$button = "<input type='submit' class='default' value='Request Sent'>";
 				else 
+fdsafsa
 				$mutual_friends = $user_obj->getMutualFriends($row['username']) . " friends in common";
 
 

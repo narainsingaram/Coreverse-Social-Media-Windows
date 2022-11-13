@@ -28,6 +28,7 @@ if($query != ""){
  
 	while($row = mysqli_fetch_array($usersReturnedQuery)) {
 		$user = new User($con, $userLoggedIn);
+		$postq =mysqli_fetch_array($postReturnedQuery);
  
 		if($row['username'] != $userLoggedIn)
 			$mutual_friends = $user->getMutualFriends($row['username']) . " friends in common";

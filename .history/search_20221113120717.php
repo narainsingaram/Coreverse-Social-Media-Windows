@@ -75,6 +75,7 @@ else {
 				else if($user_obj->didSendRequest($row['username']))
 					$button = "<input type='submit' class='default' value='Request Sent'>";
 				else 
+fdsafsa
 				$mutual_friends = $user_obj->getMutualFriends($row['username']) . " friends in common";
 
 

@@ -26,7 +26,7 @@ else  {
  
 if($query != ""){
  
-	while($row = mysqli_fetch_array($usersReturnedQuery)) {
+	while($row = mysqli_fetch_array($postReturnedQuery)) {
 		$user = new User($con, $userLoggedIn);
  
 		if($row['username'] != $userLoggedIn)

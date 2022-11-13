@@ -12,7 +12,7 @@ $postReturnedQuery = '';
 //If query contains an underscore, assume user is searching for usernames
 if(strpos($query, '_') !== false) {
 	$usersReturnedQuery = mysqli_query($con, "SELECT * FROM user WHERE username LIKE '$query%' AND user_closed='no' LIMIT 8");
-	$postReturnedQuery = mysqli_query($con, "SELECT * FROM user_posts");
+	$postReturnedQuery = mysqli_query($con, "SELECT * FROM user WHERE username LIKE '$query%' AND user_closed='no' LIMIT 8");
 }
 //If there are two words, assume they are first and last names respectively
 else if(count($names) == 2) {

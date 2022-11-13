@@ -36,8 +36,6 @@ else {
                 
             $search_input = explode(" ", $query);
 
-			echo $search_input;
-
             //If there are two words, assume they are first and last names respectively
                 if(count($search_input) == 3)
             $usersReturnedQuery = mysqli_query($con, "SELECT * FROM user WHERE (first_name LIKE '$search_input[0]%' AND last_name LIKE '$search_input[2]%') AND user_closed='no'");
@@ -75,6 +73,7 @@ else {
 				else if($user_obj->didSendRequest($row['username']))
 					$button = "<input type='submit' class='default' value='Request Sent'>";
 				else 
+fdsafsa
 				$mutual_friends = $user_obj->getMutualFriends($row['username']) . " friends in common";
 
 
