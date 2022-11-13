@@ -1267,7 +1267,15 @@ aside {
   pointer-events: none;
 }
 
-
+.modal.show {
+  bottom: 100%;
+  opacity: 1;
+}
+.modal .top-content {
+  background: #34495e;
+  width: 100%;
+  padding: 0 0 30px 0;
+}
 .top-content .left-text {
   text-align: left;
   padding: 10px 15px;
@@ -1291,7 +1299,11 @@ aside {
   font-size: 80px;
   color: #f2f2f2;
 }
-
+.modal .bottom-content {
+  background: white;
+  width: 100%;
+  padding: 15px 20px;
+}
 .bottom-content .reply_post_to {
   color: black;
   text-align: center;
@@ -1461,6 +1473,12 @@ aside {
 
 #profile_post_modal {
   border: none;
+}
+
+.modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 1em !important;
 }
 
 .reply_post_button {

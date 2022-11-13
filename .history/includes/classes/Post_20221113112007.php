@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp">
 <script src="https://cdn.tailwindcss.com"></script>
-
+<link href="https://cdn.jsdelivr.net/npm/daisyui@2.38.1/dist/full.css" rel="stylesheet" type="text/css" />
 
 
 
@@ -342,11 +342,45 @@ class Post {
 					
 					if($imagePath != "") {
 						$imageDiv = "
-										<img class='my-2 rounded-2xl shadow-lg w-full m-auto object-cover' src='$imagePath'>
+										<img class='my-2 rounded-2xl shadow-lg m-auto object-cover' src='$imagePath'>
 									";
 					}
 					else {
 						$imageDiv = "";
+					}
+
+					$get_likes = mysqli_query($this->con, "SELECT likes, added_by FROM user_posts WHERE id='$id'");
+					$row = mysqli_fetch_array($get_likes);
+					$total_likes = $row['likes'];
+					$user_liked = $row['added_by'];
+				
+					$user_details_query = mysqli_query($this->con, "SELECT * FROM user WHERE username='$user_liked'");
+					$row = mysqli_fetch_array($user_details_query);
+					$total_user_likes = $row['num_likes'];
+				
+				
+					//Check for previous likes 
+					$check_query = mysqli_query($this->con, "SELECT * FROM likes WHERE username='$userLoggedIn' AND post_id='$id'");
+					$like_num_rows = mysqli_num_rows($check_query);
+
+					$like_form = '';
+
+					echo $like_num_rows;
+				
+					if($like_num_rows == 1) {
+						$like_form .= '
+					<form action="index.php" method="POST" class="inline">
+						<button type="submit" name="unlike_button">
+							<span id="liked_animation" class="material-icons-round" style="color: red; font-size: 30px;"> favorite</span>
+						</button>
+					</form>
+				';
+				
+					}
+				
+					else if($like_num_rows == 0){
+						$like_form .= '
+				';
 					}
 
             
@@ -408,41 +442,50 @@ class Post {
 	
                 </div>
 
-				<div class='card bg-white p-4 shadow-lg'>
+				<div class='card bg-white px-4 py-6 shadow-lg'>
 					$imageDiv
-				<div class='px-3 py-2 '>
+				<div class='card-body'>
 				  <p>$body</p>
-				</div>
-				  <div class='flex p-0 justify-end'>
+				  <div class='card-actions justify-end'>
 					<iframe src='like.php?post_id=$id' class='h-20 w-16' scrolling='no'></iframe>
-					<button class='bg-teal-100 hover:bg-teal-200 border-none btn btn-circle mx-2 mt-3.5' name='comment-toggle-button' onClick='javascript:toggle$id()'> 
+					<button class='btn bg-blue-500 btn-circle mt-3.5' name='comment-toggle-button' onClick='javascript:toggle$id()'> 
 					<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none'>
-						<path opacity='.4' d='M7 18.43h4l4.45 2.96a.997.997 0 0 0 1.55-.83v-2.13c3 0 5-2 5-5v-6c0-3-2-5-5-5H7c-3 0-5 2-5 5v6c0 3 2 5 5 5Z' fill='#14b8a6'></path>
-						<path d='M15.5 11.25h-7c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h7c.41 0 .75.34.75.75s-.34.75-.75.75Z' fill='#14b8a6'></path>
+						<path opacity='.4' d='M7 18.43h4l4.45 2.96a.997.997 0 0 0 1.55-.83v-2.13c3 0 5-2 5-5v-6c0-3-2-5-5-5H7c-3 0-5 2-5 5v6c0 3 2 5 5 5Z' fill='#3b82f6'></path>
+						<path d='M15.5 11.25h-7c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h7c.41 0 .75.34.75.75s-.34.75-.75.75Z' fill='#3b82f6'></path>
 					</svg>
 					</button>
-					<label for='my-modal-$id' class='bg-blue-100 hover:bg-blue-200 border-none btn btn-circle mx-1 mt-3.5'> 
+					<button class='btn bg-blue-500 btn-circle mx-1 mt-3.5'> 
 					<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none'>
 						<path opacity='.4'  d='m7.11 5.961 9.02-3.01c4.05-1.35 6.25.86 4.91 4.91l-3.01 9.02c-2.02 6.07-5.34 6.07-7.36 0l-.89-2.68-2.68-.89c-6.06-2.01-6.06-5.32.01-7.35Z' fill='#3b82f6'></path>
 						<path d='m12.12 11.629 3.81-3.82ZM12.12 12.38c-.19 0-.38-.07-.53-.22a.754.754 0 0 1 0-1.06l3.8-3.82c.29-.29.77-.29 1.06 0 .29.29.29.77 0 1.06l-3.8 3.82c-.15.14-.34.22-.53.22Z'fill='#3b82f6'></path>
 					</svg>
-					</label>
+					</button>
 				  </div>
 				</div>
-			  </div>	
-
-			  <input type='checkbox' id='my-modal-$id' class='modal-toggle' />
-			  <div class='modal'>
-				<div class='modal-box relative'>
-				  <label for='my-modal-$id' class='btn btn-sm btn-circle absolute right-2 top-2'>✕</label>
-				  <h3 class='text-lg font-bold'>Congratulations random Internet user!</h3>
-				  <p class='py-4'>You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-				</div>
-			</div>
-
+			  </div>			
+			  
 			<div class='post_comment' id='toggleComment$id' style='display: none;'>
 				<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
 			</div>
+
+			
+<div class='max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'>
+<a href="#">
+	<img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="">
+</a>
+<div class="p-5">
+	<a href="#">
+		<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+	</a>
+	<p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+	<a href="#" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+		Read more
+		<svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+	</a>
+</div>
+</div>
+
+
 				";
 
         }
