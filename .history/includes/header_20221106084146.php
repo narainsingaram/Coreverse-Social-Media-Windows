@@ -49,32 +49,81 @@ else {
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.38.1/dist/full.css" rel="stylesheet" type="text/css" />
 </head>
 
+   <nav>
+     <div class="container">   
+  <h2 class="log"> 
+ Corverse
+  </h2>
+<div class="search-bar">
+<form action="search.php" method="GET" name="search_form">
+  <i class="uil uil-search"></i>
+  <input type="text" onkeyup="getLiveSearchUsers(this.value, '<?php echo $userLoggedIn; ?>')"  name="q" autocomplete="off" placeholder="Search for people" id="search_text_input">  
+
+</form>
+
+      
+<div class="search_results">
+                
+    </div>
+    
+<div class="search_results_footer_empty">
+    
+              </div>
+
+
+</div>
+<div class="create">
+    <label class="create_post_label"for="create a post"> Create</label>
+    <div class="profile-photo">
+        <img src="<?php echo $user['profile_pic']; ?>" alt="">
+    </div>
+  </div>
+</div>   
+</div>      
+   </nav>
 
     <div class="navbar bg-base-100">
-    <div class="navbar-start">
-        <div class="dropdown">
+    <div class="flex-1">
+        <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+    </div>
+    <div class="flex-none">
+        <div class="dropdown dropdown-end">
         <label tabindex="0" class="btn btn-ghost btn-circle">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+            <div class="indicator">
+            <img src="<?php echo $user['profile_pic']; ?>" alt="">
+            <span class="badge badge-sm indicator-item">8</span>
+            </div>
         </label>
-        <ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52">
-            <li><a>Homepage</a></li>
-            <li><a>Portfolio</a></li>
-            <li><a>About</a></li>
+        <div tabindex="0" class="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
+            <div class="card-body">
+            <span class="font-bold text-lg">8 Items</span>
+            <span class="text-info">Subtotal: $999</span>
+            <div class="card-actions">
+                <button class="btn btn-primary btn-block">View cart</button>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="dropdown dropdown-end">
+        <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+            <div class="w-10 rounded-full">
+            <img src="https://placeimg.com/80/80/people" />
+            </div>
+        </label>
+        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+            <li>
+            <a class="justify-between">
+                Profile
+                <span class="badge">New</span>
+            </a>
+            </li>
+            <li><a>Settings</a></li>
+            <li><a>Logout</a></li>
         </ul>
         </div>
     </div>
-    <a class="btn btn-ghost normal-case text-xl">
-            Corverse
-        </a>
-    <div class="navbar-end">
-        <button class="btn btn-ghost btn-circle">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-        </button>
-        <button class="btn btn-ghost btn-circle">
-            <img class="h-8 w-8 rounded-full" src="<?php echo $user['profile_pic']; ?>" alt="">
-        </button>
     </div>
-    </div>
+
 
 <?php
     //Unread Messages
@@ -87,6 +136,8 @@ else {
     $user_obj = new User ($con, $userLoggedIn);
     $num_requests = $user_obj->getNumberOfFriendRequests();
 ?>
+
+      
 
     <div class="dropdown_data_window" style='height: 0px;'>    
         <input type="hidden" id="dropdown_data_type" value="">

@@ -132,7 +132,7 @@ class Notification {
 
 
 			$opened = $row['opened'];
-			$style = (isset($row['opened']) && $row['opened'] == 'no') ? "background-color: red !important;" : "";
+			$style = (isset($row['opened']) && $row['opened'] == 'no') ? "background-color: #FF0000 !important;" : "";
 
 
 			$return_string .= "<a href='". $row['link'] ."'> 

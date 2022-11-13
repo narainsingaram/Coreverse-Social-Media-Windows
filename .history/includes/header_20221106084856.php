@@ -56,22 +56,22 @@ else {
         <label tabindex="0" class="btn btn-ghost btn-circle">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
         </label>
-        <ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52">
+        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
             <li><a>Homepage</a></li>
             <li><a>Portfolio</a></li>
             <li><a>About</a></li>
         </ul>
         </div>
-    </div>
-    <a class="btn btn-ghost normal-case text-xl">
+        <a class="btn btn-ghost normal-case text-xl">
             Corverse
         </a>
+    </div>
     <div class="navbar-end">
         <button class="btn btn-ghost btn-circle">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
         </button>
         <button class="btn btn-ghost btn-circle">
-            <img class="h-8 w-8 rounded-full" src="<?php echo $user['profile_pic']; ?>" alt="">
+            <img class="h-5 w-5" src="<?php echo $user['profile_pic']; ?>" alt="">
         </button>
     </div>
     </div>
@@ -87,6 +87,8 @@ else {
     $user_obj = new User ($con, $userLoggedIn);
     $num_requests = $user_obj->getNumberOfFriendRequests();
 ?>
+
+      
 
     <div class="dropdown_data_window" style='height: 0px;'>    
         <input type="hidden" id="dropdown_data_type" value="">
