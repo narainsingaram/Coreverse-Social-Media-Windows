@@ -170,17 +170,36 @@ if(isset($_POST['post'])) {
 
 
 
+<div class="wrapper_tweet">
+    <div class="bottom">
+    <form class="profile_post" action="index.php" method="POST" enctype="multipart/form-data">
+    </div>
+    <div class="input-box">
+      <div class="tweet-area">
+      <input type="file" name="fileToUpload" id="fileToUpload" method="POST">
+      <textarea onblur="this.focus();" name="post_text" id="post_text" placeholder="What's happening today, <?php echo $user['first_name'] . "?"; ?>"></textarea>
+      <input type="hidden" name="user_from" value="<?php echo $userLoggedIn; ?>">
+      <input type="hidden" name="user_to" value="<?php echo $username;?>" >
+    </div>
+    
+        <input type="submit" name="post" id="post_button" value="Post">
+        
+
+
+    </form>
+    </div>
+  </div>
 </div>
 
 
   <form action="index.php" method="POST" enctype="multipart/form-data">
-    <div class="mb-4 w-full bg-gray-50 rounded-xl shadow-[rgba(7,_65,70,_0.1)_0px_9px_30px]">
+    <div class="mb-4 w-full bg-gray-50 rounded-lg border border-gray-20">
         <div class="py-2 px-4 bg-white rounded-t-lg">
             <label for="comment" class="sr-only">Your comment</label>
-            <textarea name="post_text" id="comment" rows="4" class="px-0 py-2 outline-none w-full text-sm text-gray-900 bg-white border-0" placeholder="Write a comment..." required=""></textarea>
+            <textarea name="post_text" id="comment" rows="4" class="px-0 w-full text-sm text-gray-900 bg-white border-0" placeholder="Write a comment..." required=""></textarea>
         </div>
         <div class="flex justify-between items-center py-2 px-3 border-t">
-            <button type="submit" name="post" class="btn normal-case py-2 px-4 font-medium text-center text-white bg-blue-500 hover:bg-blue-600 rounded-xl border-none">
+            <button type="submit" name="post" class="btn normal-case py-2 px-4 font-medium text-center text-white bg-blue-700 rounded-2xl focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
                 Post comment
             </button>
             <div class="flex pl-0 space-x-1 sm:pl-2">

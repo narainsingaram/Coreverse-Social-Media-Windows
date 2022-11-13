@@ -170,6 +170,8 @@ if(isset($_POST['post'])) {
 
 
 
+<div class="wrapper_tweet">
+  </div>
 </div>
 
 
@@ -177,7 +179,7 @@ if(isset($_POST['post'])) {
     <div class="mb-4 w-full bg-gray-50 rounded-xl shadow-[rgba(7,_65,70,_0.1)_0px_9px_30px]">
         <div class="py-2 px-4 bg-white rounded-t-lg">
             <label for="comment" class="sr-only">Your comment</label>
-            <textarea name="post_text" id="comment" rows="4" class="px-0 py-2 outline-none w-full text-sm text-gray-900 bg-white border-0" placeholder="Write a comment..." required=""></textarea>
+            <textarea name="post_text" id="comment" rows="4" class="px-0 outline-none w-full text-sm text-gray-900 bg-white border-0" placeholder="Write a comment..." required=""></textarea>
         </div>
         <div class="flex justify-between items-center py-2 px-3 border-t">
             <button type="submit" name="post" class="btn normal-case py-2 px-4 font-medium text-center text-white bg-blue-500 hover:bg-blue-600 rounded-xl border-none">
