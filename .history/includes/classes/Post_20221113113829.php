@@ -395,27 +395,20 @@ class Post {
 
 				<div class='card bg-white p-4 shadow-lg'>
 
-			<div class='dropdown'>
-				<label tabindex='0' class='btn absolute right-2 top-2'>More</label>
-				<ul tabindex='0' class='dropdown-content absolute right-2 top-14 menu p-2 shadow bg-base-100 rounded-box w-52'>
-				<li><a> <i class='uil uil-sync'></i> Remove Post </a></li>
-				<li><a> <i class='uil uil-sync'></i> Report </a></li>
-				</ul>
-			  </div>
-
 				<div class='aligned-flex-css'>
-					<div class='post_profile_pic mx-3'>
-						<img src='$profile_pic'>
-					</div>
+				<div class='post_profile_pic'>
+					<img src='$profile_pic'>
+				</div>
 
 				<span class='posted_by' style='color:#ACACAC;'>
-					<a class='first_name__last_name_post' href='$added_by'> $first_name $last_name </a> <br>
+					<a class='first_name__last_name_post tooltip' href='$added_by'> $first_name $last_name <div class='tooltiptext'>  </div></a>  $user_to <br>
+		
 					<span class='time_num_info'> $time_message </span>  
 						<span class='comment_num_info'><i class='uil uil-comment'></i> $comments_check_num </span> 
 							<span class='like_num_info'> <i class='uil uil-heart'></i> $likes_check_num </span>  
 				
 				</div>
-
+				
 					$imageDiv
 				<div class='px-3 py-2 '>
 				  <p>$body</p>

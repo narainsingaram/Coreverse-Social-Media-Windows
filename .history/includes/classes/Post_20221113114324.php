@@ -399,7 +399,7 @@ class Post {
 				<label tabindex='0' class='btn absolute right-2 top-2'>More</label>
 				<ul tabindex='0' class='dropdown-content absolute right-2 top-14 menu p-2 shadow bg-base-100 rounded-box w-52'>
 				<li><a> <i class='uil uil-sync'></i> Remove Post </a></li>
-				<li><a> <i class='uil uil-sync'></i> Report </a></li>
+				<li><a> <i class='uil uil-sync'></i> Update Statistics </a></li>
 				</ul>
 			  </div>
 

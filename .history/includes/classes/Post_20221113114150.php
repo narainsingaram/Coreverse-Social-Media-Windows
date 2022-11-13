@@ -396,10 +396,10 @@ class Post {
 				<div class='card bg-white p-4 shadow-lg'>
 
 			<div class='dropdown'>
-				<label tabindex='0' class='btn absolute right-2 top-2'>More</label>
-				<ul tabindex='0' class='dropdown-content absolute right-2 top-14 menu p-2 shadow bg-base-100 rounded-box w-52'>
-				<li><a> <i class='uil uil-sync'></i> Remove Post </a></li>
-				<li><a> <i class='uil uil-sync'></i> Report </a></li>
+				<label tabindex='0' class='btn absolute right-2 top-2'>Click</label>
+				<ul tabindex='0' class='dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52'>
+				  <li><a>Item 1</a></li>
+				  <li><a>Item 2</a></li>
 				</ul>
 			  </div>
 

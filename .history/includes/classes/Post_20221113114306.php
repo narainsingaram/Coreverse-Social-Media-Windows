@@ -398,8 +398,9 @@ class Post {
 			<div class='dropdown'>
 				<label tabindex='0' class='btn absolute right-2 top-2'>More</label>
 				<ul tabindex='0' class='dropdown-content absolute right-2 top-14 menu p-2 shadow bg-base-100 rounded-box w-52'>
-				<li><a> <i class='uil uil-sync'></i> Remove Post </a></li>
-				<li><a> <i class='uil uil-sync'></i> Report </a></li>
+				<li><a> <i class='uil uil-sync'></i> Update Statistics </a>
+				<a> <i class='uil uil-confused'></i> Report Post </a>
+				<a> <i class='uil uil-trash-alt'></i> Remove Post </a>
 				</ul>
 			  </div>
 

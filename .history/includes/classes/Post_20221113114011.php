@@ -394,19 +394,11 @@ class Post {
                 </div>
 
 				<div class='card bg-white p-4 shadow-lg'>
-
-			<div class='dropdown'>
-				<label tabindex='0' class='btn absolute right-2 top-2'>More</label>
-				<ul tabindex='0' class='dropdown-content absolute right-2 top-14 menu p-2 shadow bg-base-100 rounded-box w-52'>
-				<li><a> <i class='uil uil-sync'></i> Remove Post </a></li>
-				<li><a> <i class='uil uil-sync'></i> Report </a></li>
-				</ul>
-			  </div>
-
+				<label for='my-modal-$id' class='btn btn-sm btn-circle absolute right-2 top-2'>✕</label>
 				<div class='aligned-flex-css'>
-					<div class='post_profile_pic mx-3'>
-						<img src='$profile_pic'>
-					</div>
+				<div class='post_profile_pic mx-3'>
+					<img src='$profile_pic'>
+				</div>
 
 				<span class='posted_by' style='color:#ACACAC;'>
 					<a class='first_name__last_name_post' href='$added_by'> $first_name $last_name </a> <br>
