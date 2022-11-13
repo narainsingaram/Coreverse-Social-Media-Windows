@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp">
 <link href="https://cdn.jsdelivr.net/npm/daisyui@2.38.1/dist/full.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
 
 
 
@@ -357,28 +358,6 @@ class Post {
 					$row = mysqli_fetch_array($user_details_query);
 					$total_user_likes = $row['num_likes'];
 				
-					//Like button
-					if(isset($_POST['like_button'])) {
-						$total_likes++;
-						$query = mysqli_query($this->con, "UPDATE user_posts SET likes='$total_likes' WHERE id='$id'");
-						$total_user_likes++;
-						$user_likes = mysqli_query($this->con, "UPDATE user SET num_likes='$total_user_likes' WHERE username='$user_liked'");
-						$insert_user = mysqli_query($this->con, "INSERT INTO likes VALUES('', '$userLoggedIn', '$id')");
-				
-						//Insert Notification
-						if($user_liked != $userLoggedIn) {
-							$notification = new Notification($this->con, $userLoggedIn);
-							$notification->insertNotification($id, $user_liked, "like");
-						}
-					}
-					//Unlike button
-					if(isset($_POST['unlike_button'])) {
-						$total_likes--;
-						$query = mysqli_query($this->con, "UPDATE user_posts SET likes='$total_likes' WHERE id='$id'");
-						$total_user_likes--;
-						$user_likes = mysqli_query($this->con, "UPDATE user SET num_likes='$total_user_likes' WHERE username='$user_liked'");
-						$insert_user = mysqli_query($this->con, "DELETE FROM likes WHERE username='$userLoggedIn' AND post_id='$id'");
-					}
 				
 					//Check for previous likes 
 					$check_query = mysqli_query($this->con, "SELECT * FROM likes WHERE username='$userLoggedIn' AND post_id='$id'");
@@ -388,10 +367,10 @@ class Post {
 
 					echo $like_num_rows;
 				
-					if($like_num_rows > 0) {
+					if($like_num_rows == 1) {
 						$like_form .= '
 					<form action="index.php" method="POST" class="inline">
-						<button class="comment_like" name="unlike_button">
+						<button type="submit" name="unlike_button">
 							<span id="liked_animation" class="material-icons-round" style="color: red; font-size: 30px;"> favorite</span>
 						</button>
 					</form>
@@ -399,16 +378,10 @@ class Post {
 				
 					}
 				
-					else {
+					else if($like_num_rows == 0){
 						$like_form .= '
-					<form action="index.php" method="POST" class="like_post_form">	
-						<button class="comment_like" name="like_button">
-							<span id="about_to_like" class="material-icons-round" style="color: black; font-size: 30px;"> favorite_border</span>
-						</button>
-					</form>
 				';
 					}
-					
 
             
                 $str .= "<div class='status_post' id='on_hover_post_info_modal'>
@@ -475,10 +448,12 @@ class Post {
 				  <p>$body</p>
 				  <div class='card-actions justify-end'>
 					<button class='btn btn-primary'>Learn now!</button>
-					<iframe src='like.php?post_id=$id' class='btn btn-ghost h-30 w-20' scrolling='no'></iframe>
-					$like_form
-					<button  class='btn btn-ghost' name='comment-toggle-button' onClick='javascript:toggle$id()'> 
-					<i class='uil uil-comment comment_animation'></i>
+					<iframe src='like.php?post_id=$id' class='bg-white h-20 w-20' scrolling='no'></iframe>
+					<button class='btn btn-circle' name='comment-toggle-button' onClick='javascript:toggle$id()'> 
+					<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none'>
+						<path opacity='.4' d='M7 18.43h4l4.45 2.96a.997.997 0 0 0 1.55-.83v-2.13c3 0 5-2 5-5v-6c0-3-2-5-5-5H7c-3 0-5 2-5 5v6c0 3 2 5 5 5Z' fill='#3b82f6'></path>
+						<path d='M15.5 11.25h-7c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h7c.41 0 .75.34.75.75s-.34.75-.75.75Z' fill='#3b82f6'></path>
+					</svg>
 					</button>
 				  </div>
 				</div>
