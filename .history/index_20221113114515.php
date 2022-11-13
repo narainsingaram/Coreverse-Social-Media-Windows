@@ -174,7 +174,7 @@ if(isset($_POST['post'])) {
 
 
   <form action="index.php" method="POST" enctype="multipart/form-data">
-    <div class="mb-2 w-full bg-gray-50 rounded-xl shadow-[rgba(7,_65,70,_0.1)_0px_9px_30px]">
+    <div class="mb-4 w-full bg-gray-50 rounded-xl shadow-[rgba(7,_65,70,_0.1)_0px_9px_30px]">
         <div class="py-2 px-4 bg-white rounded-t-lg">
             <label for="comment" class="sr-only">Your comment</label>
             <textarea name="post_text" id="comment" rows="4" class="px-0 py-2 outline-none w-full text-sm text-gray-900 bg-white border-0" placeholder="Create a Post" required=""></textarea>
