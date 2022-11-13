@@ -2,8 +2,8 @@
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp">
-<link href="https://cdn.jsdelivr.net/npm/daisyui@2.38.1/dist/full.css" rel="stylesheet" type="text/css" />
-
+<script src="assets\js\bootbox.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.38.1/dist/full.css" rel="stylesheet" type="text/css" />
 
 
     <script src="https://kit.fontawesome.com/e1623e6969.js" crossorigin="anonymous"> </script>
@@ -340,76 +340,13 @@ class Post {
 					}
 					
 					if($imagePath != "") {
-						$imageDiv = "
-										<img class='my-2 rounded-2xl shadow-lg w-10/12 m-auto h-8/12 object-cover' src='$imagePath'>
-									";
+						$imageDiv = "<div class='postedImage'>
+										<img src='$imagePath'>
+									</div>";
 					}
 					else {
 						$imageDiv = "";
 					}
-
-					$get_likes = mysqli_query($this->con, "SELECT likes, added_by FROM user_posts WHERE id='$id'");
-					$row = mysqli_fetch_array($get_likes);
-					$total_likes = $row['likes'];
-					$user_liked = $row['added_by'];
-				
-					$user_details_query = mysqli_query($this->con, "SELECT * FROM user WHERE username='$user_liked'");
-					$row = mysqli_fetch_array($user_details_query);
-					$total_user_likes = $row['num_likes'];
-				
-					//Like button
-					if(isset($_POST['like_button'])) {
-						$total_likes++;
-						$query = mysqli_query($this->con, "UPDATE user_posts SET likes='$total_likes' WHERE id='$id'");
-						$total_user_likes++;
-						$user_likes = mysqli_query($this->con, "UPDATE user SET num_likes='$total_user_likes' WHERE username='$user_liked'");
-						$insert_user = mysqli_query($this->con, "INSERT INTO likes VALUES('', '$userLoggedIn', '$id')");
-				
-						//Insert Notification
-						if($user_liked != $userLoggedIn) {
-							$notification = new Notification($this->con, $userLoggedIn);
-							$notification->insertNotification($id, $user_liked, "like");
-						}
-					}
-					//Unlike button
-					if(isset($_POST['unlike_button'])) {
-						$total_likes--;
-						$query = mysqli_query($this->con, "UPDATE user_posts SET likes='$total_likes' WHERE id='$id'");
-						$total_user_likes--;
-						$user_likes = mysqli_query($this->con, "UPDATE user SET num_likes='$total_user_likes' WHERE username='$user_liked'");
-						$insert_user = mysqli_query($this->con, "DELETE FROM likes WHERE username='$userLoggedIn' AND post_id='$id'");
-					}
-				
-					//Check for previous likes 
-					$check_query = mysqli_query($this->con, "SELECT * FROM likes WHERE username='$userLoggedIn' AND post_id='$id'");
-					$like_num_rows = mysqli_num_rows($check_query);
-
-					$like_form = '';
-
-					echo $like_num_rows;
-				
-					if($like_num_rows > 0) {
-						$like_form .= '
-					<form action="index.php" method="POST" class="inline">
-						<button class="comment_like" name="unlike_button">
-							<span id="liked_animation" class="material-icons-round" style="color: red; font-size: 30px;"> favorite</span>
-						</button>
-					</form>
-				';
-				
-					}
-				
-					else {
-						$like_form .= '
-					<form action="index.php" method="POST" class="like_post_form">	
-						<button class="comment_like" name="like_button">
-							<span id="about_to_like" class="material-icons-round" style="color: black; font-size: 30px;"> favorite_border</span>
-						</button>
-					</form>
-				';
-					}
-					
-
             
                 $str .= "<div class='status_post' id='on_hover_post_info_modal'>
 				<div class='dropdown'>
@@ -440,6 +377,11 @@ class Post {
                         $body
                     </div>
         <div class='newsfeedPostOptions'>
+		<button class='comment-toggle-button' name='comment-toggle-button' onClick='javascript:toggle$id()'> 
+		<i class='uil uil-comment comment_animation'></i>
+		</button>
+		<iframe src='like.php?post_id=$id' id='like_iframe' scrolling='no'></iframe>
+		<button class='share_copy_button share-dropdown' name='share_copy_button'> 
 		<span> <i class='uil uil-share shareicon'></i> </span>
 		<div class='share-dropdown-content'>
 		<div class='popup'>
@@ -467,26 +409,10 @@ class Post {
     </div>
 	</div>
 	
+                </div>    
+                <div class='post_comment' id='toggleComment$id' style='display: none;'>
+                    <iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
                 </div>
-
-				<div class='card bg-red-200 px-4 py-6 shadow-lg'>
-					$imageDiv
-				<div class='card-body'>
-				  <p>$body</p>
-				  <div class='card-actions justify-end'>
-					<button class='btn btn-primary'>Learn now!</button>
-					<iframe src='like.php?post_id=$id' class='btn btn-ghost h-30 w-20' scrolling='no'></iframe>
-					$like_form
-					<button  class='btn btn-ghost' name='comment-toggle-button' onClick='javascript:toggle$id()'> 
-					<i class='uil uil-comment comment_animation'></i>
-					</button>
-				  </div>
-				</div>
-			  </div>			
-			  
-			<div class='post_comment' id='toggleComment$id' style='display: none;'>
-				<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
-			</div>
 
 				";
 

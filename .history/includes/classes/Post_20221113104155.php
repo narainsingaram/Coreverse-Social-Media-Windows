@@ -385,8 +385,6 @@ class Post {
 					$like_num_rows = mysqli_num_rows($check_query);
 
 					$like_form = '';
-
-					echo $like_num_rows;
 				
 					if($like_num_rows > 0) {
 						$like_form .= '

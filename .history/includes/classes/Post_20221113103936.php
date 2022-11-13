@@ -382,15 +382,13 @@ class Post {
 				
 					//Check for previous likes 
 					$check_query = mysqli_query($this->con, "SELECT * FROM likes WHERE username='$userLoggedIn' AND post_id='$id'");
-					$like_num_rows = mysqli_num_rows($check_query);
+					$num_rows = mysqli_num_rows($check_query);
 
 					$like_form = '';
-
-					echo $like_num_rows;
 				
-					if($like_num_rows > 0) {
+					if($num_rows > 0) {
 						$like_form .= '
-					<form action="index.php" method="POST" class="inline">
+					<form action="like.php?post_id=' . $id . '" method="POST" class="inline">
 						<button class="comment_like" name="unlike_button">
 							<span id="liked_animation" class="material-icons-round" style="color: red; font-size: 30px;"> favorite</span>
 						</button>
@@ -401,8 +399,8 @@ class Post {
 				
 					else {
 						$like_form .= '
-					<form action="index.php" method="POST" class="like_post_form">	
-						<button class="comment_like" name="like_button">
+					<form action="like.php?post_id=' . $id. '" method="POST" class="like_post_form">	
+						<button  class="comment_like" name="like_button">
 							<span id="about_to_like" class="material-icons-round" style="color: black; font-size: 30px;"> favorite_border</span>
 						</button>
 					</form>
@@ -476,7 +474,6 @@ class Post {
 				  <div class='card-actions justify-end'>
 					<button class='btn btn-primary'>Learn now!</button>
 					<iframe src='like.php?post_id=$id' class='btn btn-ghost h-30 w-20' scrolling='no'></iframe>
-					$like_form
 					<button  class='btn btn-ghost' name='comment-toggle-button' onClick='javascript:toggle$id()'> 
 					<i class='uil uil-comment comment_animation'></i>
 					</button>

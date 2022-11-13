@@ -382,13 +382,11 @@ class Post {
 				
 					//Check for previous likes 
 					$check_query = mysqli_query($this->con, "SELECT * FROM likes WHERE username='$userLoggedIn' AND post_id='$id'");
-					$like_num_rows = mysqli_num_rows($check_query);
+					$num_rows = mysqli_num_rows($check_query);
 
 					$like_form = '';
-
-					echo $like_num_rows;
 				
-					if($like_num_rows > 0) {
+					if($num_rows > 0) {
 						$like_form .= '
 					<form action="index.php" method="POST" class="inline">
 						<button class="comment_like" name="unlike_button">
