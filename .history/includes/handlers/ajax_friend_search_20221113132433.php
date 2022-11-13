@@ -15,7 +15,7 @@ if(strpos($query, '_') !== false) {
 }
 //If there are two words, assume they are first and last names respectively
 else if(count($names) == 2) {
-	$usersReturnedQuery = mysqli_query($con, "SELECT first_name,last_name FROM user WHERE (first_name LIKE '$names[0]%' AND last_name LIKE '$names[1]%') AND user_closed='no' LIMIT 8");
+	$usersReturnedQuery = mysqli_query($con, "SELECT * FROM user WHERE (first_name LIKE '$names[0]%' AND last_name LIKE '$names[1]%') AND user_closed='no' LIMIT 8");
 }
 else if ($query == 'Posts') {
 	$usersReturnedQuery = mysqli_query($con, "SELECT * FROM user_posts LIMIT 8");
@@ -41,11 +41,13 @@ if($query != ""){
 				<a href='" . $row['username'] . "' style='color: #1485BD'>
 					<div class='liveSearchProfilePic'>
 						<img src='" . $row['profile_pic'] ."'>
+						" . $row['body'] ."
 					</div>
  
 					<div class='liveSearchText'>
+					$query
 						" . $row['first_name'] . " " . $row['last_name'] . "
-						<p>" . $row['username'] ." </p>
+						<p>" . $row['username'] ."</p>
 						<p id='grey'>" . $mutual_friends ."</p>
 					</div>
 				</a>

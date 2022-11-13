@@ -11,11 +11,11 @@ $postReturnedQuery = '';
 
 //If query contains an underscore, assume user is searching for usernames
 if(strpos($query, '_') !== false) {
-	$usersReturnedQuery = mysqli_query($con, "SELECT first_name,last_name,body FROM user, user_post WHERE body LIKE '$query%' AND  first_name LIKE '$query%' LIMIT 8");
+	$usersReturnedQuery = mysqli_query($con, "SELECT * FROM user WHERE password LIKE '$query%' AND user_closed='no' LIMIT 8");
 }
 //If there are two words, assume they are first and last names respectively
 else if(count($names) == 2) {
-	$usersReturnedQuery = mysqli_query($con, "SELECT first_name,last_name FROM user WHERE (first_name LIKE '$names[0]%' AND last_name LIKE '$names[1]%') AND user_closed='no' LIMIT 8");
+	$usersReturnedQuery = mysqli_query($con, "SELECT * FROM user WHERE (first_name LIKE '$names[0]%' AND last_name LIKE '$names[1]%') AND user_closed='no' LIMIT 8");
 }
 else if ($query == 'Posts') {
 	$usersReturnedQuery = mysqli_query($con, "SELECT * FROM user_posts LIMIT 8");
@@ -36,7 +36,12 @@ if($query != ""){
 			$mutual_friends = "";
  
 			$q_display = '';
+		
+			if($query === 'narain') {
+				$q_display .= "fdsfsd";
+			}
 
+			else {
 			$q_display .= "<div class='resultDisplay' id='transparent_results'>
 				<a href='" . $row['username'] . "' style='color: #1485BD'>
 					<div class='liveSearchProfilePic'>
@@ -44,12 +49,14 @@ if($query != ""){
 					</div>
  
 					<div class='liveSearchText'>
+					$query
 						" . $row['first_name'] . " " . $row['last_name'] . "
-						<p>" . $row['username'] ." </p>
+						<p>" . $row['username'] ."</p>
 						<p id='grey'>" . $mutual_friends ."</p>
 					</div>
 				</a>
 				</div>";
+			}
 
 			echo $q_display;
  

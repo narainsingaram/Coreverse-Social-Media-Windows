@@ -87,26 +87,26 @@ function getDropdownData(user, type) {
 
 }
 
-	function getLiveSearchUsers(value, user) {
-	
-		$.post("includes/handlers/ajax_search.php", {query:value, userLoggedIn: user}, function(data) {
-	
-			if($(".search_results_footer_empty")[0]) {
-				$(".search_results_footer_empty").toggleClass("search_results_footer");
-				$(".search_results_footer_empty").toggleClass("search_results_footer_empty");
-			}
-	
-			$('.search_results').html(data);
-			$('.search_results_footer').html("<a class='view_results_text' href='search.php?q=" + value + "'>View all results</a>");
-	
-			if(value.length == 0) {
-				$('.search_results_footer').html("");
-				$('.search_results_footer').toggleClass("search_results_footer_empty");
-				$('.search_results_footer').toggleClass("search_results_footer");
-			}
-	
-		});
-	}
+function getLiveSearchUsers(value, user) {
+ 
+	$.post("includes/handlers/ajax_search.php", {query:value, userLoggedIn: user}, function(data) {
+ 
+		if($(".search_results_footer_empty")[0]) {
+			$(".search_results_footer_empty").toggleClass("search_results_footer");
+			$(".search_results_footer_empty").toggleClass("search_results_footer_empty");
+		}
+ 
+		$('.search_results').html(data);
+		$('.search_results_footer').html("<a class='view_results_text' href='search.php?q=" + value + "'>View all results</a>");
+ 
+		if(value.length == 0) {
+			$('.search_results_footer').html("");
+			$('.search_results_footer').toggleClass("search_results_footer_empty");
+			$('.search_results_footer').toggleClass("search_results_footer");
+		}
+ 
+	});
+}
 
 
    $(function(){

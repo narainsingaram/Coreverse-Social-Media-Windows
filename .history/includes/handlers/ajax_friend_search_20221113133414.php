@@ -44,8 +44,9 @@ if($query != ""){
 					</div>
  
 					<div class='liveSearchText'>
+					$query
 						" . $row['first_name'] . " " . $row['last_name'] . "
-						<p>" . $row['username'] ." </p>
+						<p>" . $row['username'] ." " . $row['body'] ."</p>
 						<p id='grey'>" . $mutual_friends ."</p>
 					</div>
 				</a>
