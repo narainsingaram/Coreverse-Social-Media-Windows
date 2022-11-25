@@ -18,16 +18,14 @@ else if(count($names) == 2) {
 	$usersReturnedQuery = mysqli_query($con, "SELECT first_name,last_name FROM user WHERE (first_name LIKE '$names[0]%' OR last_name LIKE '$names[0]%' OR username LIKE '$names[0]%' ) AND user_closed='no' LIMIT 8");
 }
 else if ($query == 'Posts') {
-	$usersReturnedQuery = mysqli_query($con, "SELECT * FROM user_posts");
+	$usersReturnedQuery = mysqli_query($con, "SELECT * FROM user_posts LIMIT 8");
 }
 //If query has one word only, search first names or last names 
 else  {
 	$usersReturnedQuery = mysqli_query($con, "SELECT * FROM user WHERE (first_name LIKE '$names[0]%' OR last_name LIKE '$names[0]%' OR username LIKE '$names[0]%' ) AND user_closed='no' LIMIT 8");
 }
-
-
-
-
+ 
+ 
 if($query != "" && $query != "Posts"){
 
 	while($row = mysqli_fetch_array($usersReturnedQuery)) {
@@ -54,9 +52,9 @@ if($query != "" && $query != "Posts"){
 				</div>";
 
 			echo $q_display;
-	}
 
-	echo mysqli_num_rows($usersReturnedQuery) . " " . "results found";
+	}
+	
 }
 
 else if($query != "") {

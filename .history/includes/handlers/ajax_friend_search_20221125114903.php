@@ -56,7 +56,20 @@ if($query != "" && $query != "Posts"){
 			echo $q_display;
 	}
 
-	echo mysqli_num_rows($usersReturnedQuery) . " " . "results found";
+
+	$num_results_found_q = mysqli_num_rows($usersReturnedQuery)
+
+	$no_results_display = '';
+
+	$no_results_display = "					
+<div class='liveSearchText'>
+	" . $row['first_name'] . " " . $row['last_name'] . "
+	<p>" . $row['username'] ." </p>
+	<p id='grey'>" . $mutual_friends ."</p>
+</div>
+";
+
+	echo $no_results_display;
 }
 
 else if($query != "") {

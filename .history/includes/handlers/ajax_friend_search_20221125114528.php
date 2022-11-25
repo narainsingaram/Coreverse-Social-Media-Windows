@@ -57,6 +57,7 @@ if($query != "" && $query != "Posts"){
 	}
 
 	echo mysqli_num_rows($usersReturnedQuery) . " " . "results found";
+	
 }
 
 else if($query != "") {
