@@ -81,13 +81,17 @@
 		echo "<p class='comment-posted-notification'>Comment Posted! </p>";
 	}
 	?>
+	<form action="comment_frame.php?post_id=<?php echo $post_id; ?>" id="comment_form" name="postComment<?php echo $post_id; ?>" method="POST">
+		<textarea name="post_body"></textarea>
+		<input class="btn bg-emerald-100" type="submit" value="Comment">
+	</form>
 
 	
-<form action="comment_frame.php?post_id=<?php echo $post_id; ?>"name="postComment<?php echo $post_id; ?>" method="POST">
+<form>
     <label for="chat" class="sr-only">Your message</label>
-    <div class="flex items-center px-3 py-2 rounded-lg bg-slate-100 my-4">
-        <textarea name="post_body" rows="1" class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Your message..."></textarea>
-			<button type="submit" name="postComment<?php echo $post_id; ?>" class="btn inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100">
+    <div class="flex items-center px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-700">
+        <textarea id="chat" rows="1" class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your message..."></textarea>
+			<button type="submit" name="postComment<?php echo $post_id; ?>" class="btn inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600">
 				Comment
 			</button>
     </div>

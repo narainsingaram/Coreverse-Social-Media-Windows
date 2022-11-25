@@ -81,18 +81,10 @@
 		echo "<p class='comment-posted-notification'>Comment Posted! </p>";
 	}
 	?>
-
-	
-<form action="comment_frame.php?post_id=<?php echo $post_id; ?>"name="postComment<?php echo $post_id; ?>" method="POST">
-    <label for="chat" class="sr-only">Your message</label>
-    <div class="flex items-center px-3 py-2 rounded-lg bg-slate-100 my-4">
-        <textarea name="post_body" rows="1" class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Your message..."></textarea>
-			<button type="submit" name="postComment<?php echo $post_id; ?>" class="btn inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100">
-				Comment
-			</button>
-    </div>
-</form>
-
+	<form action="comment_frame.php?post_id=<?php echo $post_id; ?>" id="comment_form" name="postComment<?php echo $post_id; ?>" method="POST">
+		<textarea name="post_body"></textarea>
+		<input class="btn" type="submit" name="postComment<?php echo $post_id; ?>" value="Comment">
+	</form>
 
     <?php
         $get_comments = mysqli_query($con, "SELECT * FROM comments WHERE post_id='$post_id' ORDER BY id ASC");
