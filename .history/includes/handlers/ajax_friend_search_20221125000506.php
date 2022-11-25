@@ -66,7 +66,7 @@ else if($query == "Posts") {
 			<div class='resultDisplay' id='transparent_results'>
 			<a href='" . $row['body'] . "' style='color: #1485BD'>
 				<div class='liveSearchProfilePic'>
-					<img src='" . $row['profile_pic'] ."'>
+					<img src='" . $row['image'] ."'>
 				</div>
 
 				<div class='liveSearchText'>

@@ -64,15 +64,15 @@ else if($query == "Posts") {
 
 			$q_display .= "
 			<div class='resultDisplay' id='transparent_results'>
-			<a href='" . $row['body'] . "' style='color: #1485BD'>
+			<a href='" . $row['username'] . "' style='color: #1485BD'>
 				<div class='liveSearchProfilePic'>
 					<img src='" . $row['profile_pic'] ."'>
 				</div>
 
 				<div class='liveSearchText'>
-					" . $row['added_by'] . " " . $row['likes'] . "
-					<p>" . $row['id'] ." </p>
-					<p id='grey'></p>
+					" . $row['first_name'] . " " . $row['last_name'] . "
+					<p>" . $row['username'] ." </p>
+					<p id='grey'>" . $mutual_friends ."</p>
 				</div>
 			</a>
 			</div>

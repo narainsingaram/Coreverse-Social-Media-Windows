@@ -26,7 +26,7 @@ else  {
 }
  
  
-if($query != "" && $query != "Posts"){
+if($query != "" && $query){
 
 	while($row = mysqli_fetch_array($usersReturnedQuery)) {
 		$user = new User($con, $userLoggedIn); 
@@ -57,26 +57,17 @@ if($query != "" && $query != "Posts"){
 	
 }
 
-else if($query == "Posts") {
+if($query == "Posts") {
 	while($row = mysqli_fetch_array($usersReturnedQuery)) {
 		$user = new User($con, $userLoggedIn); 
+		if($row['username'] != $userLoggedIn)
+			$mutual_friends = $user->getMutualFriends($row['username']) . " friends in common";
+		else 
+			$mutual_friends = "";
+
 			$q_display = '';
 
-			$q_display .= "
-			<div class='resultDisplay' id='transparent_results'>
-			<a href='" . $row['body'] . "' style='color: #1485BD'>
-				<div class='liveSearchProfilePic'>
-					<img src='" . $row['profile_pic'] ."'>
-				</div>
-
-				<div class='liveSearchText'>
-					" . $row['added_by'] . " " . $row['likes'] . "
-					<p>" . $row['id'] ." </p>
-					<p id='grey'></p>
-				</div>
-			</a>
-			</div>
-			";
+			$q_display .= "banana>";
 
 			echo $q_display;
 

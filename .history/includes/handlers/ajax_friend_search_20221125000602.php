@@ -57,7 +57,7 @@ if($query != "" && $query != "Posts"){
 	
 }
 
-else if($query == "Posts") {
+else if($query == "posts") {
 	while($row = mysqli_fetch_array($usersReturnedQuery)) {
 		$user = new User($con, $userLoggedIn); 
 			$q_display = '';
