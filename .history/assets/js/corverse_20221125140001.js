@@ -104,6 +104,34 @@ function getDropdownData(user, type) {
 		});
 	}
 
+
+$(function(){
+
+	$("[data-fancybox]").fancybox();
+
+	$(".icons .projectLink").on("click", function(e){
+
+	const imagePath = this.id;
+	
+	bootbox.confirm("Delete image?", function(result){
+		if(result) {
+	
+		$.post("includes/handlers/delete_gallery_image.php", {imagePath:imagePath, userLoggedIn:userLoggedIn}, function(data){
+	
+			setTimeout(function(){
+			if(window.location.hash === "")
+					window.location.hash = "#gallery_div";
+			location.reload();
+			}, 300);
+			
+		});
+		}
+		
+	});
+
+	});
+
+});
  
 $(function(){
 	$("#submitGallery").on("click", function(e){
