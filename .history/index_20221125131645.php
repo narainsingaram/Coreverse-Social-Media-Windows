@@ -97,7 +97,63 @@ if(isset($_POST['post'])) {
 
 <div class="sidebar">
 
-            <a class="menu-item" ><i class="uil uil-sign-out-alt"></i> <h3>Logout</h3> 
+<?php
+    //Unread Messages
+    $messages = new Message ($con, $userLoggedIn);
+    $num_messages = $messages->getUnreadNumber();
+
+    $notifications = new Notification ($con, $userLoggedIn);
+    $num_notifications = $notifications->getUnreadNumber();
+
+    $user_obj = new User ($con, $userLoggedIn);
+    $num_requests = $user_obj->getNumberOfFriendRequests();
+
+
+?>
+
+
+            <a href="" class="menu-item active">
+              <span><i class="uil uil-estate"></i></span> <h3>Home</h3>
+            </a>
+
+            <a href="" class="menu-item"><span><i class="uil uil-compass"></i></span> <h3>Explore</h3> 
+            
+            </a>
+
+            <a class="menu-item" href="javascript:void(0);" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'notification')"><i class="uil uil-bell"></i>
+
+            <?php
+            if($num_messages > 0)
+            echo '<small class="notification-count" id="unread_message">' .  $num_messages .  '</small>';
+
+            ?>
+            
+            <h3>Notifications</h3> 
+            
+            </a>
+
+            <a class="menu-item" href="javascript:void(0);" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'message')"> <i class="uil uil-message"></i> 
+            <?php
+            if($num_messages > 0)
+            echo '<small class="notification-count" id="unread_notification">' .  $num_messages .  '</small>';
+
+            ?>
+            <h3>Messages</h3> 
+            </a>
+
+            <a class="menu-item" href="requests.php" ><i class="uil uil-user-plus"></i> 
+            <?php
+            if($num_requests > 0)
+            echo '<small class="notification-count" id="unread_request">' .  $num_requests .  '</small>';
+            ?>
+            <h3>Friend Requests</h3> 
+            </a>
+
+            <a href="settings.php" class="menu-item"><span><i class="uil uil-setting"></i></span> <h3>Settings</h3> 
+            
+            </a>
+
+            <a class="menu-item" href="includes/handlers/logout.php"><i class="uil uil-sign-out-alt"></i> <h3>Logout</h3> 
             
             </a>
           

@@ -93,13 +93,13 @@ else {
         </a>
         
         <div class="dropdown dropdown-end">
-            <label tabindex="0" class="btn btn-ghost btn-circle">
-                <img class="h-8 w-8 rounded-full" src="<?php echo $user['profile_pic']; ?>" alt="">
-            </label>
-            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                <li><a>Item 1</a></li>
-                <li><a href="includes/handlers/logout.php">Logout</a></li>
-            </ul>
+        <label tabindex="0" class="btn btn-ghost btn-circle">
+            <img class="h-8 w-8 rounded-full" src="<?php echo $user['profile_pic']; ?>" alt="">
+        </label>
+        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+            <li><a>Item 1</a></li>
+            <li><a href="includes/handlers/logout.php">Logout</a></li>
+        </ul>
         </div>
     </div>
     </div>

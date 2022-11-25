@@ -97,7 +97,13 @@ if(isset($_POST['post'])) {
 
 <div class="sidebar">
 
-            <a class="menu-item" ><i class="uil uil-sign-out-alt"></i> <h3>Logout</h3> 
+
+            <a href="" class="menu-item active">
+              <span><i class="uil uil-estate"></i></span> <h3>Home</h3>
+            </a>
+
+
+            <a class="menu-item" href="includes/handlers/logout.php"><i class="uil uil-sign-out-alt"></i> <h3>Logout</h3> 
             
             </a>
           
