@@ -240,11 +240,11 @@ class Post {
 				else 
 					$delete_button = "";
 
-						$user_details_query = mysqli_query($this->con, "SELECT first_name, last_name, profile_pic FROM user WHERE username='$added_by'");
-						$user_row = mysqli_fetch_array($user_details_query);
-						$first_name = $user_row['first_name'];
-						$last_name = $user_row['last_name'];
-						$profile_pic = $user_row['profile_pic'];
+					$user_details_query = mysqli_query($this->con, "SELECT first_name, last_name, profile_pic FROM user WHERE username='$added_by'");
+					$user_row = mysqli_fetch_array($user_details_query);
+					$first_name = $user_row['first_name'];
+					$last_name = $user_row['last_name'];
+					$profile_pic = $user_row['profile_pic'];
                     ?>
 
 				<script> 
